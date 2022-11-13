@@ -1,0 +1,52 @@
+
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header green-header">
+                    Ingrese los Datos del Usuario
+                </div>
+                <div class="card-body px-5">
+                    <form [formGroup]="formNuevoUsuario" (ngSubmit)="guardarUsuario()">
+                        <div class="form-group row">
+                            <label class="col-form-label">Nombre.</label>
+                            <input class="form-control" type="text" formControlName="nombre">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label">Identificacion.</label>
+                            <input class="form-control" type="text" formControlName="identificacion">
+                        </div>
+                        <div class="form-group row">
+                            <label >Perfil: </label>
+                            <select class="form-select" formControlName="perfil" >
+                                <option *ngFor="let per of perfilesView"  value="{{per.idPerfil}}">{{per.descripcion}}</option>
+                            </select> 
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label">telefono.</label>
+                            <input class="form-control" type="text" formControlName="telefono">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label">Celular.</label>
+                            <input class="form-control" type="text" formControlName="celular">
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label">Email.</label>
+                            <input class="form-control" type="text" formControlName="email">
+                        </div>
+                                        
+                        <div class="form-group row">
+                            <label class="col-form-label">&nbsp;</label>
+                            <div class="input-group col-md-8">
+                                <button  type="submit" class="btn btn-outline-primary">Guardar</button>&nbsp;&nbsp;
+                            </div>
+                            <!--[disabled]="!formNuevoUsuario.valid"-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
