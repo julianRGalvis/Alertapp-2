@@ -20,12 +20,22 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Correo</th>
-                        <th>Perfil</th>
                         <th>Acciones</th>
+
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr *ngFor="let user of usuariosView">
+                        <td>{{user.idusuario}}</td>
+                        <td>{{user.nombre}}</td>
+                        <td>{{user.correo}}</td>
+                        <td>
+                            <div *ngIf="user.idusuario">
+                                <button class="btn btn-warning" (click)="editarusuario(user.idusuario)">Editar</button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="eliminar(user.idusuario)">Eliminar</button>&nbsp;&nbsp;
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

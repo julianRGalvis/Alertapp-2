@@ -6,24 +6,42 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuariosService {
 
-  url = 'http://localhost/phpmyadmin/index.php';
+  //url = 'http://localhost/phpmyadmin/index.php';
   constructor(private http:HttpClient) { }
+
+  deleteUsuario(id:any){
+    return this.http.post('backend/index.php/users/deleteuser',{
+      'id': id
+    })
+  }
+
+  editarusuario(id:any, formulario:any){
+    return this.http.post('backend/index.php/users/editarusuario',{
+      "nombre": formulario.controls.nombre.value,
+      "correo": formulario.controls.correo.value,
+      'password': formulario.controls.password.value,
+      "id": id
+    });
+  }
+
+  getUsuarioUno(id:any){
+    return this.http.post('backend/index.php/users/getusuariouno',{
+      'id':id
+    });
+  }
 
 
   GuardarUsurarioNuevo(formulario:any){
 
-    return this.http.post(`${this.url}/users/guardarusuario`,{
+    return this.http.post('backend/index.php/users/crearusuario',{
       "nombre": formulario.controls.nombre.value,
-      "identificacion": formulario.controls.identificacion.value,
-      "telefono": formulario.controls.telefono.value,
-      "celular": formulario.controls.celular.value,
-      "email": formulario.controls.email.value,
-      "perfil": formulario.controls.perfil.value,
+      "password": formulario.controls.password.value,
+      "correo": formulario.controls.correo.value,
     });
   }
 
-  getPerfiles(){
-    return this.http.post(`${this.url}/users/getperfiles`,{
+  getlistUserAll(){
+    return this.http.post('backend/index.php/users/getusuariosall',{ 
     });
   }
 }

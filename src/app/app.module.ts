@@ -18,6 +18,7 @@ import { AgregarUsuarioComponent } from './components/usuarios/agregar-usuario.c
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { EditarUsuarioComponent } from './components/usuarios/editar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     DashboardComponent,
     NavbarComponent,
     UsuariosComponent,
-    AgregarUsuarioComponent
+    AgregarUsuarioComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     ReactiveFormsModule,
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule 
+    AngularFirestoreModule,
+    
     
 
   ],

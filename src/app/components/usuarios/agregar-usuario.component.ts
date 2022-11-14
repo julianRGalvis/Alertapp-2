@@ -20,11 +20,8 @@ export class AgregarUsuarioComponent implements OnInit {
   constructor(private userService: UsuariosService, private activa: ActivatedRoute, private rutas: Router,) { 
     this.formNuevoUsuario = new FormGroup({
       'nombre': new FormControl('',Validators.minLength(6)),
-      'identificacion': new FormControl('',Validators.minLength(6)),
-      'telefono': new FormControl('',Validators.minLength(6)),
-      'celular': new FormControl('',Validators.minLength(6)),
-      'email': new FormControl('',Validators.minLength(6)),
-      'perfil' : new FormControl('',Validators.required),
+      'password': new FormControl('',Validators.minLength(6)),
+      'correo': new FormControl('',Validators.minLength(6)),
     })
   }
 
@@ -57,15 +54,5 @@ export class AgregarUsuarioComponent implements OnInit {
         })
       }
     });
-  }
-
-
-
-  getPerfiles(){
-    this.userService.getPerfiles()
-    .subscribe(data =>{
-      this.perfilesDb = data;
-      this.perfilesView = this.perfilesDb.items;
-    })
   }
 }

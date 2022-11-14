@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { LoginComponent } from "./components/login/login.component";
 import { AgregarUsuarioComponent } from "./components/usuarios/agregar-usuario.component";
+import { EditarUsuarioComponent } from "./components/usuarios/editar-usuario.component";
 import { UsuariosComponent } from "./components/usuarios/usuarios.component";
 
 export const APP_ROUTES: Routes = [
@@ -10,6 +11,7 @@ export const APP_ROUTES: Routes = [
     {path:'dashboard', component: DashboardComponent},
     {path:'usuarios', component: UsuariosComponent},
     {path:'agregar-usuario', component: AgregarUsuarioComponent},
+    {path:'usuarios/editar-usuario/:iduser', component: EditarUsuarioComponent},
 
   
   

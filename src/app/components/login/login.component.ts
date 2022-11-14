@@ -36,21 +36,10 @@ export class LoginComponent implements OnInit {
     this.loginServicio.sendValidate(this.formLogin)
     .subscribe((data: any) => {
       this.loginResp = data;
-      if(this.loginResp.items[0].error){
-        if(this.loginResp.items[0].codigo == 4){
-          Swal.fire({
-            title: 'Error',
-            text: this.loginResp.items[0].error,
-            icon: 'warning',
-            showCancelButton: false,
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Aceptar'
-          }).then((result) =>{
-            if(result.value){
-              this.ruta.navigateByUrl("/usuarios/password");
-
-            }
-          });
+      console.log(this.loginResp);
+        if(this.loginResp.items[0].codigo == 20){
+          this.ruta.navigateByUrl("/dashboard");
+          Swal.close();
         }else{
           Swal.fire({
             icon: 'error',
@@ -58,12 +47,9 @@ export class LoginComponent implements OnInit {
             text: this.loginResp.items[0].error
           })
         }
-      }else{
-        this.ruta.navigateByUrl("/dashboard");
-        Swal.close();
-      }
+
     });
   }
   
-
+  
 }
